@@ -4,6 +4,11 @@ import requests
 import os
 from dotenv import load_dotenv
 
+from dotenv import load_dotenv
+load_dotenv()
+import os
+
+
 # Load variables from .env file
 load_dotenv()
 app = Flask(__name__)
@@ -11,7 +16,8 @@ CORS(app)
 
 # THIS IS BAD PRACTICE, DO NOT PUT API KEY OUTSIDE OF ENVIRONMENT VARIABLE FILES
 # REFER TO THE DOCUMENTS TO COMPLETE THE PROJECT
-CTA_API_KEY = "524e55641a6c4655a2378d3644ca06f3"
+CTA_API_KEY = os.getenv("CTA_TRAIN_API_KEY")
+
 
 @app.route("/")
 def get_cta_trains():
